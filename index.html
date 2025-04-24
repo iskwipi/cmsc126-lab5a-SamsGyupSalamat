@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 Heroes</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dota 2 Heroes</h1>
+        <div class="toggle-buttons">
+            <button id="sortByName" onclick="displayByName()">Sort by Name</button>
+            <button id="sortByRole" onclick="displayByRole()">Sort by Role</button>
+        </div>
+        <div id="heroContainer" class="hero-container"></div>
+        <div id="tooltip" class="tooltip"></div>
+    </div>
+    <script src="display.js" async="true" defer="true"></script>
+</body>
+</html>
