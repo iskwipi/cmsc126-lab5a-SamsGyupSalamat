@@ -1,72 +1,138 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
+    font-family: 'Bebas Neue', sans-serif;
     color: #ffffff;
     margin: 0;
-    padding: 20px;
+    padding: 1.25rem;
+    background: linear-gradient(30deg, #360909, #3a0a0a, #000000);
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-}
 
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align:center;
+}
 h1 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
     text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #731212;
 }
 
 .toggle-buttons {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
+}
+
+.dotalogo {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    width: 0.7vw;
+    min-width: 16px;
+    height: auto;
+    cursor: pointer;
 }
 
 button {
-    padding: 10px 20px;
-    margin: 0 10px;
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.625rem;
     cursor: pointer;
-    background-color: #007acc;
+    background-color: #731212;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 0.25rem 0.5rem rgba(68, 4, 4, 0.3);
 }
 
 button:hover {
-    background-color: #005f99;
+    background-color: #BF1F1F;
+    transform: translateY(-0.125rem);
 }
 
 .divider {
     display: block;
     width: 95%;
-    font-size: 1.5em;
-    margin: 20px 0 10px;
-    border-bottom: 2px solid #444;
+    font-size: 1.5rem;
+    margin: 2rem 0 1.25rem;   
 }
 
 .hero-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1rem;
 }
 
 .hero {
-    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
     text-align: center;
-    position: relative; /* Position relative for tooltip */
 }
 
 .hero img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 0.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    object-fit: cover;
 }
+
+.hero:hover img {
+    transform: scale(1.08);
+    box-shadow: 0 0 1rem rgba(93, 7, 7, 0.6);
+}
+
+.hero-name {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+}
+
+
+.hero-name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(30, 30, 30, 0.85);
+    color: #fff;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.25rem 0;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    opacity: 1;
+}
+
+
 
 .tooltip {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     color: #fff;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
     display: none;
     z-index: 10;
     white-space: pre-wrap;
+    font-size: 0.9rem;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 12.5rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(0.3125rem); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+

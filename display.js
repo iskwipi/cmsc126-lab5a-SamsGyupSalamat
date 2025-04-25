@@ -25,6 +25,7 @@ async function displayByName(){
     }
     const heroContainer = document.getElementById('heroContainer');
     heroContainer.innerHTML = output;
+   // heroContainer.style.display = 'flex';
 }
 
 async function displayByRole(){
@@ -55,6 +56,7 @@ async function displayByRole(){
     }
     const heroContainer = document.getElementById('heroContainer');
     heroContainer.innerHTML = output;
+   // heroContainer.style.display = 'flex';
 }
 
 function formatOutput(hero){
@@ -81,9 +83,7 @@ function hideTooltip(){
     const tooltip = document.getElementById('tooltip');
     tooltip.style.display = 'none';
 }
-
-displayByName();
-
+displayByName()
 function sortByName() {
     const sortedHeroes = heroes.sort((a, b) => a.name.localeCompare(b.name));
     displayHeroes(sortedHeroes);
