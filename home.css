@@ -50,9 +50,7 @@ button:hover {
 
 .divider {
     display: block;
-    width: 95%;
-    font-size: 1.5rem;
-    margin: 2rem 0 1.25rem;   
+    width: 95%;     
 }
 
 .hero-container {
@@ -105,8 +103,6 @@ button:hover {
     font-family: 'Orbitron', sans-serif;
     opacity: 1;
 }
-
-
 
 .tooltip {
     position: absolute;
