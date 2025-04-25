@@ -16,12 +16,21 @@ async function displayByName(){
         groups[letter].push(hero);
     });
     // console.log(groups);
+    var skipper = "<ul><li><a id='navtitle'>Jump:</a></li>";
     for(const letter in groups){
-        output += `<div class="divider"><p>${letter}\n</p></div>`;
+        // console.log("beep");
+        skipper += `<li><a href="#${letter}">${letter}</a></li>`;
+    }
+    skipper += "</ul>";
+    const navbar = document.getElementById('navbar');
+    navbar.innerHTML = skipper;
+    for(const letter in groups){
+        output += `<section id="${letter}"><div class="divider"><p>${letter}\n</p></div>`;
         groups[letter].forEach(hero => {
             // console.log(hero);
             output += formatOutput(hero);
         });
+        output += "</section>"
     }
     const heroContainer = document.getElementById('heroContainer');
     heroContainer.innerHTML = output;
@@ -47,16 +56,24 @@ async function displayByRole(){
         roleNames.push(role);
     }
     roleNames.sort((a, b) => a.localeCompare(b));
+    var skipper = "<ul><li><a id='navtitle'>Filter:</a></li>";
     for(const role of roleNames){
-        output += `<div class="divider"><p>${role}\n</p></div>`;
+        // console.log(`${role}`);
+        skipper += `<li><a id="${role}Pointer" href="#" onclick="filterSections('${role}')">${role}</a></li>`;
+    }
+    skipper += "</ul>";
+    const navbar = document.getElementById('navbar');
+    navbar.innerHTML = skipper;
+    for(const role of roleNames){
+        output += `<section id="${role}"><div class="divider"><p>${role}\n</p></div>`;
         groups[role].forEach(hero => {
             // console.log(hero);
             output += formatOutput(hero);
         });
+        output += "</section>"
     }
     const heroContainer = document.getElementById('heroContainer');
     heroContainer.innerHTML = output;
-   // heroContainer.style.display = 'flex';
 }
 
 function formatOutput(hero){
@@ -83,16 +100,46 @@ function hideTooltip(){
     const tooltip = document.getElementById('tooltip');
     tooltip.style.display = 'none';
 }
-displayByName()
-function sortByName() {
-    const sortedHeroes = heroes.sort((a, b) => a.name.localeCompare(b.name));
-    displayHeroes(sortedHeroes);
+
+function filterSections(sectionID){
+    // e.preventDefault();
+    
+    // console.log("boop");
+
+    const targetSection = document.querySelector(`#${sectionID}`);
+    const allSections = document.querySelectorAll('.hero-container section');
+    // const targetPointer = document.querySelector(`#${sectionID}Pointer`);
+    // const allPointers = document.querySelector('.navbar ul li a[href="#"]');
+
+    // Check if the target section is currently visible
+    // const isVisible = targetSection.style.display !== 'none';
+    const isVisible = targetSection.style.display === allSections[0].style.display && targetSection.style.display === allSections[allSections.length - 1].style.display;
+    // console.log(isVisible);
+
+    // Hide all sections
+    allSections.forEach(section => {
+        // console.log("brap");
+        section.style.display = 'none';
+    });
+
+    // allPointers.forEach(pointer => {
+    //     pointer.style.fontWeight = 'normal';
+    // });
+
+    // If the target section was not visible, show it
+    if (isVisible) {
+        // targetPointer.style.fontWeight = 'bold';
+        targetSection.style.display = 'flex';
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        // If it was visible, show all sections again
+        allSections.forEach(section => {
+            section.style.display = 'flex';
+        });
+    }
 }
 
-function sortByRole() {
-    const sortedHeroes = heroes.sort((a, b) => a.role.localeCompare(b.role));
-    displayHeroes(sortedHeroes);
-}
+displayByName();
 
 // Initial display
 // displayHeroes(heroes);
