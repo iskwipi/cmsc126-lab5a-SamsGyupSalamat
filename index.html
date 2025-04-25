@@ -9,6 +9,9 @@
 <body>
     <div class="container">
         <h1>Dota 2 Heroes</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search hero by name..." oninput="searchHeroes()">
+        </div>        
         <div class="toggle-buttons">
             <button id="sortByName" onclick="displayByName()">Sort by Name</button>
             <button id="sortByRole" onclick="displayByRole()">Sort by Role</button>

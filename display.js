@@ -94,5 +94,30 @@ function sortByRole() {
     displayHeroes(sortedHeroes);
 }
 
+
+//search and display heroes based on input text
+async function searchHeroes() {
+    const input = document.getElementById('searchInput').value.toLowerCase();           //get search input
+    const heroes = await getHeroes();                                                   //fetch the list of all heroes from the API
+    let output = "";                                                                    //prepare empty string to store the matching hero HTML
+
+    //loop through each hero in the list
+    for (let i = 0; i < heroes.length; i++) {
+        const heroName = heroes[i].localized_name.toLowerCase();                        //get the current hero name
+
+        if (heroName.indexOf(input) !== -1) {                                           //check if the search input is part of the hero's name
+            output += formatOutput(heroes[i]);                                          //if nag match add ang nag match sa output display
+        }
+    }
+
+    //if no heroes matched the input, show a message instead
+    if (output === "") {
+        output = `<p>No heroes found with the name "${input}"</p>`;
+    }
+
+    //display the final output (matching heroes or message) in the container
+    document.getElementById('heroContainer').innerHTML = output;
+}
+
 // Initial display
 // displayHeroes(heroes);
