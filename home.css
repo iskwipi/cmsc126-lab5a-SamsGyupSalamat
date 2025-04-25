@@ -6,11 +6,6 @@ body {
     background: linear-gradient(30deg, #360909, #3a0a0a, #000000);
 }
 
-
-h2 {
-    font-family: 'Orbitron', sans-serif;
-    text-align:center;
-}
 h1 {
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
@@ -25,7 +20,7 @@ h1 {
     margin-bottom: 2rem;
 }
 
-.dotalogo {
+/* .dotalogo {
     position: absolute;
     top: 2vh;
     left: 2vw;
@@ -33,7 +28,7 @@ h1 {
     min-width: 16px;
     height: auto;
     cursor: pointer;
-}
+} */
 
 button {
     padding: 0.75rem 1.5rem;
