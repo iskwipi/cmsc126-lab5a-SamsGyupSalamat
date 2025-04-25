@@ -94,5 +94,44 @@ function sortByRole() {
     displayHeroes(sortedHeroes);
 }
 
+
+//search and display heroes based on input text
+async function searchHeroes() {
+    const input = document.getElementById('searchInput').value.toLowerCase();           //get search input
+    const heroes = await getHeroes();                                                   //fetch the list of all heroes from the API
+    let output = "";                                                                   
+    let matchCount = 0;                                                                
+
+    //loop through each hero in the list
+    for (let i = 0; i < heroes.length; i++) {
+        const heroName = heroes[i].localized_name.toLowerCase();                        //get the current hero name
+
+        if (heroName.indexOf(input) !== -1) {                                           //check if the search input is part of the hero's name
+            output += formatOutput(heroes[i]);                                          
+            matchCount++;                                                               //increment match count if hero matched
+        }
+    }
+
+    if (output === "") {
+        output = `<p>No heroes found with the name "${input}"</p>`;                     //display message if no hero matched
+    }
+
+    //display the final output (matching heroes or message) in the container
+    const heroContainer = document.getElementById('heroContainer');                 
+    heroContainer.innerHTML = output;                                                   //set its content to the outp    ut
+
+    //adjust background based on match count
+    if (matchCount <= 1) {                                                             
+        document.body.classList.add("searching");                                       
+    } else {
+        document.body.classList.remove("searching");                                    
+    }
+
+}
+
+// Initial display
+// displayHeroes(heroes);
+
+
 // Initial display
 // displayHeroes(heroes);

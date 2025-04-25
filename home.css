@@ -20,6 +20,35 @@ h1 {
     margin-bottom: 2rem;
 }
 
+body.searching {
+    background: #1a0505;
+  }
+  
+.search-bar {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: #ffffff;
+  }
+  
+.search-bar input {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    width: 250px;
+    background: #fefefe0d;
+    color: #ffffff;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+  
+.search-bar input:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+}
+  
 /* .dotalogo {
     position: absolute;
     top: 2vh;
@@ -35,15 +64,15 @@ button {
     margin: 0 0.625rem;
     cursor: pointer;
     background-color: #731212;
-    color: white;
+    color: rgb(216, 199, 199);
     border: none;
     border-radius: 0.5rem;
     font-size: 1rem;
     transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 0.25rem 0.5rem rgba(68, 4, 4, 0.3);
 }
-
+  
 button:hover {
+    transition: background-color 0.3s, transform 0.2s;
     background-color: #BF1F1F;
     transform: translateY(-0.125rem);
 }
@@ -88,7 +117,6 @@ button:hover {
     color: #fff;
 }
 
-
 .hero-name-overlay {
     position: absolute;
     bottom: 0;
@@ -122,8 +150,4 @@ button:hover {
     animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(0.3125rem); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
 
