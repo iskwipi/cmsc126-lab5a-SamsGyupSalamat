@@ -3,82 +3,67 @@ html {
 }
 
 body {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
     color: #ffffff;
     margin: 0;
-    padding: 1.25rem;
     background: linear-gradient(30deg, #360909, #3a0a0a, #000000);
 }
 
+.topbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #8D3020;
+}
 h1 {
-    font-family: 'Orbitron', sans-serif;
+    width: fit-content;
+    font-weight: bolder;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
     font-size: 3rem;
-    margin-bottom: 2rem;
-    color: #731212;
+    margin: 0;
+    padding-top: 1.25rem;
+    padding-left: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: white;
 }
-
-.toggle-buttons {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 body.searching {
     background: #1a0505;
-  }
-  
+}
 .search-bar {
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding-top: 1.75rem;
+    padding-bottom: 1.25rem;
+    padding-right: 2rem;
     text-align: center;
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
     color: #ffffff;
-  }
-  
+    transform: skew(-20deg);
+}
 .search-bar input {
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
     border: none;
     font-size: 1rem;
     outline: none;
     width: 250px;
-    background: #fefefe0d;
+    background: #ffffff;
     color: #ffffff;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
-  
 .search-bar input:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.08);
+    /* transform: translateY(-2px); */
+    background: rgba(255, 255, 255, 0.893);
 }
-  
-/* .dotalogo {
-    position: absolute;
-    top: 2vh;
-    left: 2vw;
-    width: 0.7vw;
-    min-width: 16px;
-    height: auto;
-    cursor: pointer;
-} */
 
-button {
-    padding: 0.75rem 1.5rem;
-    margin: 0 0.625rem;
-    cursor: pointer;
-    background-color: #731212;
-    color: rgb(216, 199, 199);
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.2s;
-}
-  
-button:hover {
-    transition: background-color 0.3s, transform 0.2s;
-    background-color: #BF1F1F;
-    transform: translateY(-0.125rem);
+.navoptions {
+    background-color: #333;
 }
 
 .hero-container {
@@ -89,65 +74,88 @@ button:hover {
 }
 
 .navbar {
+    width: fit-content;
+    transform: skew(-20deg);
     background-color: #333;
     overflow: auto;
 }
-
 .navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-
 .navbar li {
     float: left;
 }
-
 .navbar a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 1rem;
     text-decoration: none;
 }
-
 .navbar a:hover {
     background-color: #ddd;
     color: black;
 }
-
 .navbar #navtitle:hover {
     background-color: #333;
     color: white;
 }
-
-.divider {
-    display: block;
-    width: 95%;     
+.toggle-buttons {
+    position: absolute;
+    right: 0;
+    padding-right: 3.5rem;
+    width: fit-content;
+    text-align: center;
+    transform: skew(-20deg);
+}
+button {
+    padding: 1.05rem;
+    margin: 0;
+    cursor: pointer;
+    background-color: #731212;
+    color: rgb(216, 199, 199);
+    border: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+button:hover {
+    transition: background-color 0.3s, transform 0.2s;
+    background-color: #BF1F1F;
+    transform: translateY(-0.125rem);
 }
 
 section {
+    padding-top: 1.25rem;
+    padding-left: 4.25rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap: 1rem;
 }
-
+.divider {
+    display: block;
+    width: 100%;    
+}
+.divider p {
+    font-size: larger;
+    font-weight: bold;
+}
 .hero {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     text-align: center;
+    transform: skewX(-20deg);
 }
-
-.hero img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 0.5rem;
+.hero img {  
+    width: fit-content;
+    height: fit-content;
     transition: transform 0.3s, box-shadow 0.3s;
     object-fit: cover;
+    transform: skewX(20deg);
 }
-
 .hero:hover img {
     transform: scale(1.08);
     box-shadow: 0 0 1rem rgba(93, 7, 7, 0.6);

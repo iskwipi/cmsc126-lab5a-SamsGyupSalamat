@@ -16,7 +16,7 @@ async function displayByName(){
         groups[letter].push(hero);
     });
     // console.log(groups);
-    var skipper = "<ul><li><a id='navtitle'>Jump:</a></li>";
+    var skipper = "<ul><li><a id='navtitle'>Jump to:</a></li>";
     for(const letter in groups){
         // console.log("beep");
         skipper += `<li><a href="#${letter}">${letter}</a></li>`;
