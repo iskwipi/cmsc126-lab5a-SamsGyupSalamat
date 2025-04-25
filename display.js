@@ -121,17 +121,13 @@ async function searchHeroes() {
     heroContainer.innerHTML = output;                                                   //set its content to the outp    ut
 
     //adjust background based on match count
-    if (matchCount <= 1) {                                                             
+    if (matchCount <= 9) {                                                             
         document.body.classList.add("searching");                                       
     } else {
         document.body.classList.remove("searching");                                    
     }
 
 }
-
-// Initial display
-// displayHeroes(heroes);
-
 
 // Initial display
 // displayHeroes(heroes);
