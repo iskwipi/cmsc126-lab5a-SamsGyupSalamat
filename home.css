@@ -81,6 +81,13 @@ button:hover {
     transform: translateY(-0.125rem);
 }
 
+.hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .navbar {
     background-color: #333;
     overflow: auto;

@@ -7,7 +7,7 @@ async function displayByName(){
     const heroes = await getHeroes();
     var output = "";
     const groups = {};
-    heroes.sort((a, b) => a.localized_name.localeCompare(b.localized_name))
+    heroes.sort((a, b) => a.localized_name.localeCompare(b.localized_name));
     heroes.forEach(hero => {
         const letter = hero.localized_name[0].toUpperCase();
         if(!groups[letter]){
@@ -24,6 +24,7 @@ async function displayByName(){
     skipper += "</ul>";
     const navbar = document.getElementById('navbar');
     navbar.innerHTML = skipper;
+    navbar.style.display = 'block';
     for(const letter in groups){
         output += `<section id="${letter}"><div class="divider"><p>${letter}\n</p></div>`;
         groups[letter].forEach(hero => {
@@ -41,7 +42,7 @@ async function displayByRole(){
     const heroes = await getHeroes();
     var output = "";
     const groups = {};
-    heroes.sort((a, b) => a.localized_name.localeCompare(b.localized_name))
+    heroes.sort((a, b) => a.localized_name.localeCompare(b.localized_name));
     heroes.forEach(hero => {
         hero.roles.forEach(role => {
             if(!groups[role]){
@@ -64,6 +65,7 @@ async function displayByRole(){
     skipper += "</ul>";
     const navbar = document.getElementById('navbar');
     navbar.innerHTML = skipper;
+    navbar.style.display = 'block';
     for(const role of roleNames){
         output += `<section id="${role}"><div class="divider"><p>${role}\n</p></div>`;
         groups[role].forEach(hero => {
@@ -113,7 +115,15 @@ function filterSections(sectionID){
 
     // Check if the target section is currently visible
     // const isVisible = targetSection.style.display !== 'none';
-    const isVisible = targetSection.style.display === allSections[0].style.display && targetSection.style.display === allSections[allSections.length - 1].style.display;
+    const isNotHighlighted = targetSection.style.display === allSections[0].style.display
+    || targetSection.style.display === allSections[allSections.length - 1].style.display;
+    const isNotEndElement = targetSection !== allSections[0] && targetSection !== allSections[allSections.length - 1]
+    console.log(`${isNotEndElement} --- ${isNotHighlighted}`);
+    const isShowable  = (isNotHighlighted || isNotEndElement) && !(isNotHighlighted && isNotEndElement);
+
+    const isVisible = (targetSection.style.display === allSections[0].style.display
+                    || targetSection.style.display === allSections[allSections.length - 1].style.display)
+                    // && (targetSection !== allSections[0] && targetSection !== allSections[allSections.length - 1]);
     // console.log(isVisible);
 
     // Hide all sections
@@ -139,15 +149,15 @@ function filterSections(sectionID){
     }
 }
 
-displayByName();
-
-
 //search and display heroes based on input text
 async function searchHeroes() {
     const input = document.getElementById('searchInput').value.toLowerCase();           //get search input
     const heroes = await getHeroes();                                                   //fetch the list of all heroes from the API
+    heroes.sort((a, b) => a.localized_name.localeCompare(b.localized_name));
     let output = "";                                                                   
-    let matchCount = 0;                                                                
+    let matchCount = 0;                         
+    const navbar = document.getElementById('navbar');
+    navbar.style.display = 'none';                            
 
     //loop through each hero in the list
     for (let i = 0; i < heroes.length; i++) {
@@ -177,4 +187,4 @@ async function searchHeroes() {
 }
 
 // Initial display
-// displayHeroes(heroes);
+searchHeroes();
