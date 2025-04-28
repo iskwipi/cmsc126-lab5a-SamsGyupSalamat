@@ -68,10 +68,9 @@ body.searching {
 .search-bar input::placeholder {
     transform: skew(20deg);
 }
-.search-bar input:hover {
-    /* transform: translateY(-2px); */
+/* .search-bar input:hover {
     background: rgba(255, 255, 255, 0.893);
-}
+} */
 
 .navoptions {
     position: relative;
@@ -91,9 +90,9 @@ body.searching {
 .navbar li {
     float: left;
 }
-.navbar li a#navtitle {
+/* .navbar li a#navtitle {
     transform: skew(20deg);
-}
+} */
 .navbar a {
     display: block;
     color: white;
