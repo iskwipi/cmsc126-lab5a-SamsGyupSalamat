@@ -77,6 +77,7 @@ body.searching {
     background-color: #333;
 }
 .navbar {
+    padding-left: 1.25rem;
     width: fit-content;
     transform: skew(-20deg);
     background-color: #333;
