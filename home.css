@@ -63,6 +63,7 @@ body.searching {
 }
 
 .navoptions {
+    position: relative;
     background-color: #333;
 }
 

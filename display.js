@@ -24,7 +24,7 @@ async function displayByName(){
     skipper += "</ul>";
     const navbar = document.getElementById('navbar');
     navbar.innerHTML = skipper;
-    navbar.style.display = 'block';
+    // navbar.style.display = 'block';
     for(const letter in groups){
         output += `<section id="${letter}"><div class="divider"><p>${letter}\n</p></div>`;
         groups[letter].forEach(hero => {
@@ -65,7 +65,7 @@ async function displayByRole(){
     skipper += "</ul>";
     const navbar = document.getElementById('navbar');
     navbar.innerHTML = skipper;
-    navbar.style.display = 'block';
+    // navbar.style.display = 'block';
     for(const role of roleNames){
         output += `<section id="${role}"><div class="divider"><p>${role}\n</p></div>`;
         groups[role].forEach(hero => {
@@ -155,9 +155,7 @@ async function searchHeroes() {
     const heroes = await getHeroes();                                                   //fetch the list of all heroes from the API
     heroes.sort((a, b) => a.localized_name.localeCompare(b.localized_name));
     let output = "";                                                                   
-    let matchCount = 0;                         
-    const navbar = document.getElementById('navbar');
-    navbar.style.display = 'none';                            
+    let matchCount = 0;                                                    
 
     //loop through each hero in the list
     for (let i = 0; i < heroes.length; i++) {
@@ -187,4 +185,4 @@ async function searchHeroes() {
 }
 
 // Initial display
-searchHeroes();
+displayByName();
