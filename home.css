@@ -15,18 +15,27 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    height: fit-content;
     background-color: #8D3020;
 }
+.logo-name {
+    padding-left: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+#dotalogo {
+    padding-right: .50rem;
+    float: left;
+    height: 4.5rem;
+    width: 4.5rem;
+}
 h1 {
-    width: fit-content;
     font-weight: bolder;
     text-transform: uppercase;
     text-align: left;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    padding-top: .80rem;
     margin: 0;
-    padding-top: 1.25rem;
-    padding-left: 1.25rem;
-    padding-bottom: 1.25rem;
     color: white;
 }
 body.searching {
@@ -38,8 +47,7 @@ body.searching {
     right: 0;
     top: 0;
     margin: 0;
-    padding-top: 1.75rem;
-    padding-bottom: 1.25rem;
+    padding-top: 2rem;
     padding-right: 2rem;
     text-align: center;
     display: flex;
@@ -57,6 +65,9 @@ body.searching {
     color: #000000;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
+.search-bar input::placeholder {
+    transform: skew(20deg);
+}
 .search-bar input:hover {
     /* transform: translateY(-2px); */
     background: rgba(255, 255, 255, 0.893);
@@ -66,14 +77,6 @@ body.searching {
     position: relative;
     background-color: #333;
 }
-
-.hero-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
 .navbar {
     width: fit-content;
     transform: skew(-20deg);
@@ -87,6 +90,9 @@ body.searching {
 }
 .navbar li {
     float: left;
+}
+.navbar li a#navtitle {
+    transform: skew(20deg);
 }
 .navbar a {
     display: block;
@@ -143,6 +149,13 @@ section {
     font-size: larger;
     font-weight: bold;
 }
+.hero-container {
+    padding-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
 .hero {
     position: relative;
     overflow: hidden;
@@ -161,7 +174,9 @@ section {
     transform: scale(1.08);
     box-shadow: 0 0 1rem rgba(93, 7, 7, 0.6);
 }
-
+.hero p {
+    transform: skew(20deg);
+}
 .hero-name {
     margin-top: 0.5rem;
     font-size: 0.85rem;
@@ -169,7 +184,6 @@ section {
     font-family: 'Orbitron', sans-serif;
     color: #fff;
 }
-
 .hero-name-overlay {
     position: absolute;
     bottom: 0;
