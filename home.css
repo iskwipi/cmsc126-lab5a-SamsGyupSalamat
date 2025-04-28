@@ -92,6 +92,23 @@ body.searching {
 }
 .magnifying-glass::after {
     content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 23%;
+    width: 0.33rem;
+    height: 1rem;
+    background: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+}
+.magnifying-glass-container {
+    background-color: rgb(72, 9, 9);
+    position: relative;
+    width: 3rem; 
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: skew(1deg);   
 }
 .navoptions {
     position: relative;
