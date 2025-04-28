@@ -70,7 +70,7 @@ body.searching {
 .search-bar input::placeholder {
     transform: skew(20deg);
 }
-/* .search-bar input:hover {
+.search-bar input:hover {
     background: rgba(255, 255, 255, 0.893);
 }
 .magnifying-glass {
@@ -105,7 +105,7 @@ body.searching {
     justify-content: center;
     transform: skew(1deg);   
 }
-} */
+
 
 .navoptions {
     position: relative;
@@ -196,22 +196,25 @@ section {
     cursor: pointer;
     text-align: center;
     transform: skewX(-20deg);
-    transform: skewX(-20deg);
 }
 .hero img {  
-    width: fit-content;
+    /* width: max-content; */
     height: fit-content;
-}
-.hero img {  
-    width: fit-content;
-    height: fit-content;
+    align-items: center;
+    overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    object-fit: cover;
-    transform: skewX(20deg);
-    transform: skewX(20deg);
+    object-fit: fill;
+    width: 130%;
+    /*
+    Afterwards, we must reposition the containerby moving it "half way" back to the left
+    By doing so, it is properly centered.
+    */
+    /* transform: ; */
+    transform: translateX(-10%) skewX(20deg);
+    display: flex;
 }
 .hero:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05) skewX(20deg) translateX(-10%);
     box-shadow: 0 0 1rem rgba(93, 7, 7, 0.6);
 }
 .hero p {
