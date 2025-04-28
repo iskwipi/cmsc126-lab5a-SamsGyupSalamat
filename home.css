@@ -90,7 +90,7 @@ body.searching {
     top: -0.4rem; 
     /* transform: skew(-15deg);    */
 }
-  
+
 .magnifying-glass::after {
     content: '';
 }
