@@ -25,22 +25,18 @@ body {
 .logo-name {
     padding-left: 1.25rem;
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: .15rem;
 }
 #dotalogo {
-    padding-right: .50rem;
     float: left;
+    padding-right: 0.8rem;
     height: 4.5rem;
     width: 4.5rem;
 }
-h1 {
-    font-weight: bolder;
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 2.5rem;
-    padding-top: .80rem;
-    margin: 0;
-    color: white;
+#dotaname{
+    padding-top: .87rem;
+    height: 3.5rem;
+    width: fit-content;
 }
 body.searching {
     background: #1a0505;
