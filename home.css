@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Mulish", sans-serif;
     font-optical-sizing: auto;
@@ -56,6 +60,7 @@ body.searching {
     transform: skew(-20deg);
 }
 .search-bar input {
+    /* border-radius: 6px; */
     padding: 0.75rem 1.5rem;
     border: none;
     font-size: 1rem;
@@ -64,6 +69,7 @@ body.searching {
     background: #ffffff;
     color: #000000;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 .search-bar input::placeholder {
     transform: skew(20deg);
@@ -72,6 +78,21 @@ body.searching {
     /* transform: translateY(-2px); */
     background: rgba(255, 255, 255, 0.893);
 }
+.magnifying-glass {
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 0.2rem solid rgb(255, 255, 255);
+    border-radius: 50%;
+    right: -0.1rem;
+    background: radial-gradient(circle at center, rgba(255, 254, 254, 0.203) 0%, transparent 80%);
+    position: relative;
+    transform: rotate(23deg);
+    top: -0.4rem; 
+    /* transform: skew(-15deg);    */
+}
+  
+.magnifying-glass::after {
+    content: '';
 
 .navoptions {
     position: relative;
@@ -153,7 +174,7 @@ section {
     padding-top: 1.25rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap: 1rem;
 }
 .hero {
@@ -162,12 +183,17 @@ section {
     cursor: pointer;
     text-align: center;
     transform: skewX(-20deg);
+    transform: skewX(-20deg);
 }
+.hero img {  
+    width: fit-content;
+    height: fit-content;
 .hero img {  
     width: fit-content;
     height: fit-content;
     transition: transform 0.3s, box-shadow 0.3s;
     object-fit: cover;
+    transform: skewX(20deg);
     transform: skewX(20deg);
 }
 .hero:hover img {
@@ -215,5 +241,3 @@ section {
     max-width: 12.5rem;
     box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.5);
 }
-
-
