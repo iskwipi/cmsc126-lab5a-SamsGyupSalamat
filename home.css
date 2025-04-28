@@ -93,7 +93,7 @@ body.searching {
   
 .magnifying-glass::after {
     content: '';
-
+}
 .navoptions {
     position: relative;
     background-color: #333;
@@ -188,6 +188,7 @@ section {
 .hero img {  
     width: fit-content;
     height: fit-content;
+}
 .hero img {  
     width: fit-content;
     height: fit-content;
