@@ -15,7 +15,7 @@ async function displayByName(){
         }
         groups[letter].push(hero);
     });
-    // console.log(groups);
+    console.log(groups);
     var skipper = "<ul><li><a id='navtitle'>Jump to:</a></li>";
     for(const letter in groups){
         // console.log("beep");
@@ -78,21 +78,74 @@ async function displayByRole(){
     heroContainer.innerHTML = output;
 }
 
+async function displayByAttribute(){
+    const heroes = await getHeroes();
+    var output = "";
+    const groups = {};
+    heroes.sort((a, b) => a.localized_name.localeCompare(b.localized_name));
+    heroes.forEach(hero => {
+        const attribute = formatAttribute(hero.primary_attr);
+        if(!groups[attribute]){
+            groups[attribute] = [];
+        }
+        groups[attribute].push(hero);
+    });
+    // console.log(groups);
+    const attributes = [];
+    for(const attribute in groups){
+        attributes.push(attribute);
+    }
+    attributes.sort((a, b) => a.localeCompare(b));
+    var skipper = "<ul><li><a id='navtitle'>Filter:</a></li>";
+    for(const attribute of attributes){
+        skipper += `<li><a id="${attribute}Pointer" href="#" onclick="filterSections('${attribute}')">${attribute}</a></li>`;
+    }
+    skipper += "</ul>";
+    const navbar = document.getElementById('navbar');
+    navbar.innerHTML = skipper;
+    // navbar.style.display = 'block';
+    for(const attribute of attributes){
+        output += `<section id="${attribute}"><div class="divider"><p>${attribute}\n</p></div>`;
+        groups[attribute].forEach(hero => {
+            // console.log(hero);
+            output += formatOutput(hero);
+        });
+        output += "</section>"
+    }
+    const heroContainer = document.getElementById('heroContainer');
+    heroContainer.innerHTML = output;
+}
+
+function formatAttribute(attribute){
+    switch(attribute){
+        case "agi":
+            return "Agility";
+        case "int":
+            return "Intelligence";
+        case "str":
+            return "Strength";
+        case "all":
+            return "Universal";
+        default:
+            return "Invalid Attribute";
+    }
+}
+
 function formatOutput(hero){
     return `
         <div class="hero">
             <img src="${'https://cdn.akamai.steamstatic.com' + hero.img}"
                 alt="${hero.localized_name}"
-                onmouseover="showTooltip(event, '${hero.localized_name}', '${hero.roles.join(", ")}')" 
+                onmouseover="showTooltip(event, '${hero.localized_name}', '${formatAttribute(hero.primary_attr)}', '${hero.roles.join(", ")}')" 
                 onmouseout="hideTooltip()">
             <p>${hero.localized_name}</p>
         </div>
     `;
 }
 
-function showTooltip(event, name, roles){
+function showTooltip(event, name, attribute, roles){
     const tooltip = document.getElementById('tooltip');
-    tooltip.innerHTML = `Name: ${name}\nRoles: ${roles}`;
+    tooltip.innerHTML = `Name: ${name}\nAttribute: ${attribute}\nRoles: ${roles}`;
     tooltip.style.display = 'inline';
     tooltip.style.left = `${event.pageX + 10}px`;
     tooltip.style.top = `${event.pageY + 10}px`;
@@ -103,6 +156,8 @@ function hideTooltip(){
     tooltip.style.display = 'none';
 }
 
+var currentFilter = "";
+
 function filterSections(sectionID){
     // e.preventDefault();
     
@@ -110,21 +165,8 @@ function filterSections(sectionID){
 
     const targetSection = document.querySelector(`#${sectionID}`);
     const allSections = document.querySelectorAll('.hero-container section');
-    // const targetPointer = document.querySelector(`#${sectionID}Pointer`);
-    // const allPointers = document.querySelector('.navbar ul li a[href="#"]');
-
-    // Check if the target section is currently visible
-    // const isVisible = targetSection.style.display !== 'none';
-    const isNotHighlighted = targetSection.style.display === allSections[0].style.display
-    || targetSection.style.display === allSections[allSections.length - 1].style.display;
-    const isNotEndElement = targetSection !== allSections[0] && targetSection !== allSections[allSections.length - 1]
-    console.log(`${isNotEndElement} --- ${isNotHighlighted}`);
-    const isShowable  = (isNotHighlighted || isNotEndElement) && !(isNotHighlighted && isNotEndElement);
-
-    const isVisible = (targetSection.style.display === allSections[0].style.display
-                    || targetSection.style.display === allSections[allSections.length - 1].style.display)
-                    // && (targetSection !== allSections[0] && targetSection !== allSections[allSections.length - 1]);
-    // console.log(isVisible);
+    const targetPointer = document.querySelector(`#${sectionID}Pointer`);
+    const allPointers = document.querySelectorAll('.navbar ul li a');
 
     // Hide all sections
     allSections.forEach(section => {
@@ -132,20 +174,24 @@ function filterSections(sectionID){
         section.style.display = 'none';
     });
 
-    // allPointers.forEach(pointer => {
-    //     pointer.style.fontWeight = 'normal';
-    // });
+    allPointers.forEach(pointer => {
+        pointer.style.backgroundColor = '#333';
+        pointer.style.color = 'white';
+    });
 
     // If the target section was not visible, show it
-    if (isVisible) {
-        // targetPointer.style.fontWeight = 'bold';
+    if (currentFilter !== sectionID) {
+        targetPointer.style.backgroundColor = '#ddd';
+        targetPointer.style.color = 'black';
         targetSection.style.display = 'flex';
         targetSection.scrollIntoView({ behavior: 'smooth' });
+        currentFilter = sectionID;
     } else {
         // If it was visible, show all sections again
         allSections.forEach(section => {
             section.style.display = 'flex';
         });
+        currentFilter = "";
     }
 }
 
@@ -185,4 +231,6 @@ async function searchHeroes() {
 }
 
 // Initial display
-displayByName();
+displayByAttribute();
+// console.log(currentFilter);
+// searchHeroes();
