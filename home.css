@@ -44,7 +44,7 @@ body.searching {
     text-align: center;
     display: flex;
     justify-content: center;
-    color: #ffffff;
+    color: #000000;
     transform: skew(-20deg);
 }
 .search-bar input {
@@ -54,7 +54,7 @@ body.searching {
     outline: none;
     width: 250px;
     background: #ffffff;
-    color: #ffffff;
+    color: #000000;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 .search-bar input:hover {
