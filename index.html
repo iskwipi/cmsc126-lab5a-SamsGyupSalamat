@@ -1,9 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -15,10 +17,13 @@
         <div class="topbar">
             <div class = "logo-name">
                 <img id="dotalogo" src="dota2logo.png">
-                <h1>Dota 2 Heroes</h1>
+                <img id="dotaname" src="dota2name.png">
             </div>
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search hero by name..." oninput="searchHeroes()">
+                <div class="magnifying-glass-container">
+                    <div class="magnifying-glass"></div>
+                </div>
             </div>    
         </div>
         <div class="navoptions">

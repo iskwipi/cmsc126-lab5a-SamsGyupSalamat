@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Mulish", sans-serif;
     font-optical-sizing: auto;
@@ -21,22 +25,18 @@ body {
 .logo-name {
     padding-left: 1.25rem;
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: .15rem;
 }
 #dotalogo {
-    padding-right: .50rem;
     float: left;
+    padding-right: 0.8rem;
     height: 4.5rem;
     width: 4.5rem;
 }
-h1 {
-    font-weight: bolder;
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 2.5rem;
-    padding-top: .80rem;
-    margin: 0;
-    color: white;
+#dotaname{
+    padding-top: .87rem;
+    height: 3.5rem;
+    width: fit-content;
 }
 body.searching {
     background: #1a0505;
@@ -56,6 +56,7 @@ body.searching {
     transform: skew(-20deg);
 }
 .search-bar input {
+    /* border-radius: 6px; */
     padding: 0.75rem 1.5rem;
     border: none;
     font-size: 1rem;
@@ -64,12 +65,46 @@ body.searching {
     background: #ffffff;
     color: #000000;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 .search-bar input::placeholder {
     transform: skew(20deg);
 }
 /* .search-bar input:hover {
     background: rgba(255, 255, 255, 0.893);
+}
+.magnifying-glass {
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 0.2rem solid rgb(255, 255, 255);
+    border-radius: 50%;
+    right: -0.1rem;
+    background: radial-gradient(circle at center, rgba(255, 254, 254, 0.203) 0%, transparent 80%);
+    position: relative;
+    transform: rotate(23deg);
+    top: -0.4rem; 
+    /* transform: skew(-15deg);    */
+}
+.magnifying-glass::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 23%;
+    width: 0.33rem;
+    height: 1rem;
+    background: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+}
+.magnifying-glass-container {
+    background-color: rgb(72, 9, 9);
+    position: relative;
+    width: 3rem; 
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: skew(1deg);   
+}
 } */
 
 .navoptions {
@@ -152,7 +187,7 @@ section {
     padding-top: 1.25rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap: 1rem;
 }
 .hero {
@@ -161,12 +196,18 @@ section {
     cursor: pointer;
     text-align: center;
     transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+.hero img {  
+    width: fit-content;
+    height: fit-content;
 }
 .hero img {  
     width: fit-content;
     height: fit-content;
     transition: transform 0.3s, box-shadow 0.3s;
     object-fit: cover;
+    transform: skewX(20deg);
     transform: skewX(20deg);
 }
 .hero:hover img {
@@ -214,5 +255,3 @@ section {
     max-width: 12.5rem;
     box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.5);
 }
-
-
